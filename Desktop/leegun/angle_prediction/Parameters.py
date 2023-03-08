@@ -1,0 +1,11 @@
+import numpy as np
+UWBCLKPERIOD_s = 1 / 499.2e6 / 128 # s
+LIGHTSPEED_m_s = 2.99709e8 # m/s in air
+ANTENNADELAY_s = 514.0e-9 # s
+FCHIPPING_Hz = 499.2e6 # Hz
+TAGANTENNAYPR = np.array([90,0,0]) # m
+TAGANTENNAOFFSET = np.array([0.06,0.06,0.07]) # m
+ANCHORANTENNAYPR = np.array([90,0,90]) # m
+ANCHORANTENNAOFFSET = np.array([0.16,0.063,0.010]) # m
+ACCMEMLENGTH = 30 # -
+SAMPLESBEFOREFPINDEX = 4 # -

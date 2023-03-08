@@ -1,0 +1,68 @@
+syntax = "proto3";
+package protobuflog;
+
+message UWBRangingExtTopic {
+    repeated uint64 timestamp = 1;
+    repeated uint64 tx0 = 2;
+    repeated uint64 rx1 = 3;
+    repeated uint64 rx2 = 4;
+    repeated uint64 rx0 = 5;
+    repeated uint64 tx1 = 6;
+    repeated uint64 tx2 = 7;
+    repeated float absolute_time = 8;
+    repeated float fp_index = 9;
+    repeated uint32 fp_index_raw = 10;
+    repeated uint32 fp_ampl1 = 11;
+    repeated uint32 lde_ppindx = 12;
+    repeated uint32 lde_ppampl = 13;
+    repeated uint32 cir = 14;
+    repeated uint32 rxpacc = 15;
+    repeated uint32  partner = 16;
+    repeated bytes p_acc_mem = 17;
+    repeated uint32 rcphase = 18;
+}
+
+message MotionCapturePose {
+    repeated uint64 timestamp = 1;
+    repeated float p_x = 2;
+    repeated float p_y = 3;
+    repeated float p_z = 4;
+    repeated float q_w = 5;
+    repeated float q_x = 6;
+    repeated float q_y = 7;
+    repeated float q_z = 8;
+}
+
+message MaxonMotorPosition {
+    repeated uint64 timestamp = 1;
+    repeated int64 p = 2;
+}
+
+message MotionCapturePose2 {
+    repeated uint64 timestamp = 1;
+    repeated uint32 ID = 2;
+    repeated float p_x = 3;
+    repeated float p_y = 4;
+    repeated float p_z = 5;
+    repeated float q_w = 6;
+    repeated float q_x = 7;
+    repeated float q_y = 8;
+    repeated float q_z = 9;
+}
+
+message IRobotDistanceAngle {
+    repeated uint64 timestamp = 1;
+    repeated int32 distance = 2;
+    repeated int32 angle = 3;
+}
+
+//our log file is just one of these
+//add new message just bellow to not break old scripts
+message CIRLog {
+    UWBRangingExtTopic uwb_ranging_ext_topic = 1;
+    MotionCapturePose mc_pose_m = 2;
+    MotionCapturePose mc_pose_s = 3;
+    MaxonMotorPosition maxon_pos = 4;
+    MotionCapturePose2 mc_poses2 = 5;
+    IRobotDistanceAngle irobot_distance_angle = 6;
+}
